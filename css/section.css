@@ -1,0 +1,284 @@
+/* 공통 카드 호버 스타일 */
+.notebook-box, .pr-box, .content-box {
+  background-color: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+.notebook-box:hover, .pr-box:hover, .content-box:hover {
+  transform: scale(1.01) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* 1. Big Class (Mac 타이틀 & 상단 아이콘 슬라이더) */
+.big-class {
+  background-color: #ffffff;
+  padding-top: 40px;
+}
+
+.category-title {
+  font-size: 56px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.product-list {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 20px;
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 85%, transparent 100%);
+}
+
+.product-list::-webkit-scrollbar {
+  display: none;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #1d1d1f;
+  flex-shrink: 0;
+  width: 100px;
+}
+
+.img-box {
+  display: flex;
+  overflow: hidden;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.img-box img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-name {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 2. Line Up (필터 탭 및 노트북 카드) */
+.filter-tabs {
+  display: inline-flex;
+  background-color: #e8e8ed;
+  padding: 4px;
+  border-radius: 30px;
+  gap: 4px;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d1d1f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+  background-color: #1d1d1f;
+  color: #ffffff;
+}
+
+.notebook-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 10px 0;
+}
+
+.notebook-list::-webkit-scrollbar {
+  display: none;
+}
+
+.notebook-box {
+  padding: 30px;
+  width: 320px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.notebook-item img {
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.notebook-box h5 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.notebook-box .desc {
+  font-size: 14px;
+  color: #6e6e73;
+  margin-bottom: 12px;
+}
+
+.price-in-notebook {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.notebook-btn {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.btn-more {
+  background-color: #0071e3;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.btn-buy {
+  color: #0071e3;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* 3. Mac PR (혜택 카드) */
+.header-contain {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.link-more {
+  color: #0071e3;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.pr-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.pr-list::-webkit-scrollbar {
+  display: none;
+}
+
+.pr-box {
+  padding: 30px;
+  width: 300px;
+  height: 280px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pr-box .pick {
+  font-size: 12px;
+  color: #6e6e73;
+  margin-bottom: 8px;
+}
+
+.pr-box h5 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.pr-box p {
+  font-size: 14px;
+  color: #6e6e73;
+  line-height: 1.4;
+}
+
+.plus-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f5f5f7;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* 4. Intro & Accessory 2열 레이아웃 */
+.intro-content {
+  display: flex;
+  gap: 20px;
+}
+
+.content-box {
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
+}
+
+.content-top h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.content-top p {
+  font-size: 14px;
+  color: #6e6e73;
+  line-height: 1.5;
+}
+
+.content-bottom {
+  margin-top: 24px;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.content-bottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.img-placeholder {
+  height: 150px;
+  background-color: #f5f5f7;
+  border-radius: 12px;
+  margin-top: 20px;
+}

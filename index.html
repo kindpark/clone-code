@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mac - Apple (KR)</title>
+    <link rel="stylesheet" href="css/accodion.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/header.css" />
+
+    <link rel="stylesheet" href="css/section.css" />
+
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- 상단 글로벌 헤더 -->
+    <header class="global-header">
+      <nav class="nav-content">
+        <a href="#" class="logo"
+          ><img
+            width="24"
+            height="24"
+            src="https://img.icons8.com/material-outlined/24/mac-os--v2.png"
+            alt="mac-os--v2"
+        /></a>
+        <a href="#">스토어</a>
+        <a href="#">Mac</a>
+        <a href="#">iPad</a>
+        <a href="#">iPhone</a>
+        <a href="#">Watch</a>
+        <a href="#">AirPods</a>
+        <a href="#">고객지원</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- 1. 제품군 카테고리 슬라이더 -->
+      <section class="big-class">
+        <div class="container">
+          <h1 class="category-title">Mac</h1>
+
+          <div class="slider-wrapper">
+            <button
+              class="scroll-btn prev"
+              id="topSliderPrev"
+              aria-label="이전 제품 보기"
+              disabled
+            >
+              ❮
+            </button>
+            <div class="product-list" id="productList">
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mbn_1fa302e95.png"
+                    alt="MacBook Neo"
+                  />
+                </div>
+                <span class="product-name">MacBook Neo</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mba_ea12e0d5b.png"
+                    alt="MacBook Air"
+                  />
+                </div>
+                <span class="product-name">MacBook Air</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mbp_bfa749034.png"
+                    alt="MacBook Pro"
+                  />
+                </div>
+                <span class="product-name">MacBook Pro</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_imac_24_832584093.png"
+                    alt="iMac"
+                  />
+                </div>
+                <span class="product-name">iMac</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mac_mini_bff82a643.png"
+                    alt="Mac mini"
+                  />
+                </div>
+                <span class="product-name">Mac mini</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mac_studio_f2f3212ea.png"
+                    alt="Mac Studio"
+                  />
+                </div>
+                <span class="product-name">Mac Studio</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mac_studio_f2f3212ea.png"
+                    alt="Mac Studio"
+                  />
+                </div>
+                <span class="product-name">Mac Studio</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mac_studio_f2f3212ea.png"
+                    alt="Mac Studio"
+                  />
+                </div>
+                <span class="product-name">Mac Studio</span>
+              </a>
+              <a href="#" class="product-item">
+                <div class="img-box">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_chapternav/small/nav_mac_studio_f2f3212ea.png"
+                    alt="Mac Studio"
+                  />
+                </div>
+                <span class="product-name">Mac Studio</span>
+              </a>
+            </div>
+
+            <button
+              class="scroll-btn nav-next"
+              id="topSliderNext"
+              aria-label="다음 제품 보기"
+            >
+              ❯
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 라인업 살펴보기 -->
+      <section class="line-up">
+        <div class="container">
+          <h2 class="section-title">라인업 살펴보기.</h2>
+          <!-- 필터 탭 버튼 영역 -->
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">
+              모든 제품
+            </button>
+            <button class="filter-btn" data-filter="laptop">노트북</button>
+            <button class="filter-btn" data-filter="desktop">데스크탑</button>
+            <button class="filter-btn" data-filter="display">디스플레이</button>
+          </div>
+          <div class="slider-wrapper">
+            <div class="notebook-list" id="notebookList">
+              <div class="notebook-box" data-category="laptop">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/mbn_cbba0d22f.jpg"
+                    alt="MacBook Neo"
+                  />
+                </a>
+                <h5>MacBook Neo</h5>
+                <p class="desc">놀라운 실속으로 만나는 Mac의 매력</p>
+                <p class="price-in-notebook">₩1,190,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+
+              <div class="notebook-box" data-category="laptop">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/mba_13_15_3a53f9a8a.jpg"
+                    alt="MacBook Air"
+                  />
+                </a>
+                <h5>MacBook Air 13 및 15</h5>
+                <p class="desc">얇게. 빠르게. 어디서나 강력하게.</p>
+                <p class="price-in-notebook">₩1,590,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+
+              <div class="notebook-box" data-category="laptop">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/mbp_14_16_785bd8e0e.jpg"
+                    alt="MacBook Pro"
+                  />
+                </a>
+                <h5>MacBook Pro 14 및 16</h5>
+                <p class="desc">막강한 성능을 갖춘 최고의 워크스테이션.</p>
+                <p class="price-in-notebook">₩2,390,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+
+              <div class="notebook-box" data-category="desktop">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/imac_24_2120b155d.jpg"
+                    alt="iMac"
+                  />
+                </a>
+                <h5>iMac</h5>
+                <p class="desc">
+                  창의적인 작업도 생산적 업무도 척척. 올인원 데스크탑.
+                </p>
+                <p class="price-in-notebook">₩2,490,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+              <div class="notebook-box" data-category="desktop">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/mac_mini_162686a71.jpg"
+                    alt="Mac mini"
+                  />
+                </a>
+                <h5>Mac mini</h5>
+                <p class="desc">가장 작고 부담 없는 Mac 데스크탑.</p>
+                <p class="price-in-notebook">₩1,490,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+              <div class="notebook-box" data-category="desktop">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/mac_studio_005dd9c2c.jpg"
+                    alt="Mac Studio"
+                  />
+                </a>
+                <h5>Mac Studio</h5>
+                <p class="desc">프로를 위한 강력한 성능 및 연결성.</p>
+                <p class="price-in-notebook">₩4,290,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+              <div class="notebook-box" data-category="display">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/studio_display_7226c99d9.jpg"
+                    alt="Studio Display"
+                  />
+                </a>
+                <h5>Studio Display</h5>
+                <p class="desc">Mac에 딱 알맞은 5K Retina 디스플레이.</p>
+                <p class="price-in-notebook">₩2,490,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+              <div class="notebook-box" data-category="display">
+                <a href="#" class="notebook-item">
+                  <img
+                    src="https://www.apple.com/assets-www/en_WW/mac/04_product_tile/medium/studio_display_xdr_8a5fa7510.jpg"
+                    alt="Studio Display XDR"
+                  />
+                </a>
+                <h5>Studio Display XDR</h5>
+                <p class="desc">
+                  창작 및 전문 워크플로를 위한 궁극의 5K Retina XDR 디스플레이.
+                </p>
+                <p class="price-in-notebook">₩5,199,000부터</p>
+                <div class="notebook-btn">
+                  <a href="#" class="btn-more">더 알아보기</a>
+                  <a href="#" class="btn-buy">구입하기 &gt;</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="scroll-controls">
+              <button class="scroll-btn prev" id="lineupPrev">&lt;</button>
+              <button class="scroll-btn next" id="lineupNext">&gt;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Mac을 Apple에서 사면 좋은 이유 -->
+      <section class="macbook-pr">
+        <div class="container">
+          <div class="header-contain">
+            <h2 class="section-title">
+              Mac, Apple에서 사면<br />가장 좋은 이유.
+            </h2>
+            <a href="#" class="link-more">Mac 쇼핑하기 &gt;</a>
+          </div>
+
+          <div class="slider-wrapper">
+            <div class="pr-list" id="prList">
+              <div class="pr-box">
+                <h6 class="pick">할부 결제</h6>
+                <h5>최대 18개월 무이자 할부 결제.</h5>
+                <p>
+                  제휴 신용카드를 사용해 자신에게 알맞은 결제 옵션을 선택해
+                  보세요.
+                </p>
+                <button class="plus-btn">+</button>
+              </div>
+              <div class="pr-box">
+                <h6 class="pick">교육 할인</h6>
+                <h5>교육 할인가로 Mac을 더 부담 없이.</h5>
+                <p>
+                  대학생 및 교육자는 Apple Store 할인 혜택을 받을 수 있습니다.
+                </p>
+                <button class="plus-btn">+</button>
+              </div>
+              <div class="pr-box">
+                <h6 class="pick">보상 판매</h6>
+                <h5>Apple Trade In으로 보상 혜택 받기.</h5>
+                <p>
+                  쓰던 기기를 보상 판매하고 새 Mac 구매 시 사용할 수 있는
+                  크레딧을 받으세요.
+                </p>
+                <button class="plus-btn">+</button>
+              </div>
+            </div>
+
+            <div class="scroll-controls">
+              <button class="scroll-btn prev" id="prPrev">&lt;</button>
+              <button class="scroll-btn next" id="prNext">&gt;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Mac으로 갈아타기 (Apple Trade In 등) -->
+      <section class="introduce-mac">
+        <div class="container">
+          <h2 class="section-title">Mac으로 갈아타기</h2>
+          <div class="intro-content">
+            <div class="content-box">
+              <div class="content-top">
+                <h4>쓰던 Mac 주고<br />새 Mac은 부담 없이.</h4>
+                <p>
+                  Apple Trade In 프로그램을 통해 현재 사용 중인 기기에 대한
+                  합당한 보상 판매 견적을 받은 다음, 새 기기 구입에
+                  활용해보세요.
+                </p>
+              </div>
+              <div class="content-bottom">
+                    <img
+                    src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/tradein-og-image-202509?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1754704312870"
+                    alt="apple-trade-in"/>
+              </div>
+            </div>
+            <div class="content-box">
+              <div class="content-top">
+                <h4>PC에서 Mac으로<br />손쉬운 전환.</h4>
+                <p>
+                  마이그레이션 지원을 통해 기존 Windows PC의 사진, 문서, 설정을
+                  Mac으로 손쉽게 옮길 수 있습니다.
+                </p>
+              </div>
+              <div class="content-bottom">
+                <img
+                src="https://ipcdn-web.apple.com/assets/v2/web/fd282d3d-250d-4e92-8695-ba55afb72837"
+                alt="migration"
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Mac 액세서리 -->
+      <section class="mac-accessory">
+        <div class="container">
+          <h2 class="section-title">Mac과 천생연분</h2>
+          <div class="intro-content">
+            <div class="content-box">
+              <div class="content-top">
+                <h4>Mac 액세서리</h4>
+                <p>키보드, 마우스 그 밖의 다양한 필수 아이템들을 만나보세요.</p>
+              </div>
+              <div class="content-bottom">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS7akwAkht55qPuelcnKncd8o3dVvTwphvQyx-S7uO3w&s=10"
+                    alt="accessory"
+                >
+              </div>
+            </div>
+            <div class="content-box">
+              <div class="content-top">
+                <h4>AppleCare+</h4>
+                <p>
+                  Mac을 위한 우발적인 손상 보장과 전문가 기술 지원 서비스를
+                  제공합니다.
+                </p>
+              </div>
+              <div class="content-bottom">
+                <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHMCq-ozUMjSpOcoxOzMbQQTU2VEEKS_y91Xdgm9cZGA&s=10"
+                alt="applecare+">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+<section class="together-section">
+  <div class="container">
+    <div class="together-header">
+      <h2>함께 여는 Apple의 세계.</h2>
+      <a href="#">Apple 기기들을 함께 쓰면 더 좋은 점 알아보기 &gt;</a>
+    </div>
+
+    <!--이미지 아코디언 메인 박스 -->
+    <div class="accordion-container">
+      <ul class="accordion-list">
+        
+        <!-- 1번째 항목 (초기 펼쳐짐 상태: active) -->
+        <li class="accordion-item active">
+          <div class="item-header">
+            <h3>Mac과 iPhone</h3>
+            <span class="arrow-icon"></span>
+          </div>
+          <div class="item-body">
+            <div class="text-content">
+              <p>
+                iPhone으로 걸려 온 전화 또는 받은 문자 메시지, 모두 Mac에서 바로 응답할 수 있습니다. 
+                ‘iPhone 미러링’ 및 ‘실시간 현황’ 기능으로 Mac에서 iPhone 화면을 확인 및 조작할 수 있죠.
+              </p>
+            </div>
+            <div class="image-content">
+              <img src="https://www.apple.com/assets-www/en_WW/mac/03_image_accordion/small/mac_iphone_2e0e4641c.jpg" alt="Mac과 iPhone" />
+            </div>
+          </div>
+        </li>
+
+        <!-- 2번째 항목 (접힌 상태: collapsed) -->
+        <li class="accordion-item collapsed">
+          <div class="item-header">
+            <h3>Mac과 iPad</h3>
+            <span class="arrow-icon"></span>
+          </div>
+          <div class="item-body">
+            <div class="text-content">
+              <p>
+                Sidecar를 사용해 iPad를 보조 디스플레이로 활용할 수 있습니다. 
+                Apple Pencil을 사용해 드로잉하거나 작업 공간을 넓혀보세요.
+              </p>
+            </div>
+            <div class="image-content">
+              <img src="https://www.apple.com/assets-www/en_WW/mac/03_image_accordion/small/mac_ipad_06fc83d87.jpg" 
+              alt="Mac과 iPad" />
+            </div>
+          </div>
+        </li>
+
+        <!-- 3번째 항목 (접힌 상태: collapsed) -->
+        <li class="accordion-item collapsed">
+          <div class="item-header">
+            <h3>Mac과 Apple Watch</h3>
+            <span class="arrow-icon"></span>
+          </div>
+          <div class="item-body">
+            <div class="text-content">
+              <p>
+                Apple Watch를 착용하고 Mac에 다가가기만 하면 암호를 입력하지 않아도 
+                Mac이 자동으로 잠금 해제됩니다.
+              </p>
+            </div>
+            <div class="image-content">
+              <img src="https://www.apple.com/assets-www/en_WW/mac/03_image_accordion/small/mac_watch_1fef7b39a.jpg" 
+              alt="Mac과 Apple Watch" />
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+    </main>
+<footer class="global-footer">
+  <div class="container">
+    <!-- 1. 각주 / 참고사항 -->
+    <div class="footer-footnotes">
+      <p>* 최소 결제 금액 조건 충족 시 제휴 신용카드로 최대 18개월 무이자 할부 결제가 가능합니다.</p>
+      <p>** 교육 할인가 적용 대상은 대학생, 입학 예정자, 학부모, 교직원입니다.</p>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- 2. 5열 사이트 링크 네비게이션 -->
+    <div class="footer-directory">
+      <div class="directory-column">
+        <h3>쇼핑 및 알아보기</h3>
+        <ul>
+          <li><a href="#">스토어</a></li>
+          <li><a href="#">Mac</a></li>
+          <li><a href="#">iPad</a></li>
+          <li><a href="#">iPhone</a></li>
+          <li><a href="#">Watch</a></li>
+          <li><a href="#">AirPods</a></li>
+        </ul>
+      </div>
+
+      <div class="directory-column">
+        <h3>계정</h3>
+        <ul>
+          <li><a href="#">Apple 계정 관리</a></li>
+          <li><a href="#">Apple Store 계정</a></li>
+          <li><a href="#">iCloud.com</a></li>
+        </ul>
+        <h3>엔터테인먼트</h3>
+        <ul>
+          <li><a href="#">Apple TV+</a></li>
+          <li><a href="#">Apple Music</a></li>
+          <li><a href="#">Apple Arcade</a></li>
+        </ul>
+      </div>
+
+      <div class="directory-column">
+        <h3>Apple Store</h3>
+        <ul>
+          <li><a href="#">매장 찾기</a></li>
+          <li><a href="#">Genius Bar</a></li>
+          <li><a href="#">오늘 Apple에서</a></li>
+          <li><a href="#">Apple 캠프</a></li>
+          <li><a href="#">주문 상태</a></li>
+        </ul>
+      </div>
+
+      <div class="directory-column">
+        <h3>비즈니스 / 교육</h3>
+        <ul>
+          <li><a href="#">Apple과 비즈니스</a></li>
+          <li><a href="#">비즈니스를 위한 쇼핑하기</a></li>
+          <li><a href="#">Apple과 교육</a></li>
+          <li><a href="#">초중고용 쇼핑하기</a></li>
+          <li><a href="#">대학생을 위한 쇼핑하기</a></li>
+        </ul>
+      </div>
+
+      <div class="directory-column">
+        <h3>Apple의 가치관</h3>
+        <ul>
+          <li><a href="#">접근성</a></li>
+          <li><a href="#">환경</a></li>
+          <li><a href="#">개인정보 보호</a></li>
+          <li><a href="#">공급망</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- 3. 하단 저작권 및 법적 고지 -->
+    <div class="footer-legal">
+      <div class="legal-copyright">
+        Copyright © 2026 Apple Inc. 모든 권리 보유.
+      </div>
+      <div class="legal-links">
+        <a href="#">개인정보 처리방침</a>
+        <a href="#">약관</a>
+        <a href="#">판매 정책</a>
+        <a href="#">법적 고지</a>
+        <a href="#">사이트 맵</a>
+      </div>
+      <div class="legal-country">
+        대한민국
+      </div>
+    </div>
+  </div>
+</footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
