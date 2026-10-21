@@ -9,20 +9,24 @@
     <link rel="stylesheet" href="css/header.css" />
 
     <link rel="stylesheet" href="css/section.css" />
-
+    <link rel="stylesheet" href="css/footer.css"/>
+    <link rel="stylesheet" href="css/activate.css">
     <script src="js/main.js" defer></script>
   </head>
   <body>
     <!-- 상단 글로벌 헤더 -->
     <header class="global-header">
       <nav class="nav-content">
-        <a href="#" class="logo"
+        <div class="logo">
+              <a href="#" class="logo"
           ><img
             width="24"
             height="24"
             src="https://img.icons8.com/material-outlined/24/mac-os--v2.png"
             alt="mac-os--v2"
         /></a>
+        </div>
+        <div class="co">      
         <a href="#">스토어</a>
         <a href="#">Mac</a>
         <a href="#">iPad</a>
@@ -30,6 +34,7 @@
         <a href="#">Watch</a>
         <a href="#">AirPods</a>
         <a href="#">고객지원</a>
+        </div>
       </nav>
     </header>
 
@@ -343,39 +348,49 @@
         </div>
       </section>
 
-      <!-- 4. Mac으로 갈아타기 (Apple Trade In 등) -->
+ <!-- 4. Mac으로 갈아타기 (Apple Trade In 등) -->
       <section class="introduce-mac">
         <div class="container">
           <h2 class="section-title">Mac으로 갈아타기</h2>
-          <div class="intro-content">
-            <div class="content-box">
-              <div class="content-top">
-                <h4>쓰던 Mac 주고<br />새 Mac은 부담 없이.</h4>
-                <p>
-                  Apple Trade In 프로그램을 통해 현재 사용 중인 기기에 대한
-                  합당한 보상 판매 견적을 받은 다음, 새 기기 구입에
-                  활용해보세요.
-                </p>
-              </div>
-              <div class="content-bottom">
-                    <img
+          <div class="slider-wrapper">
+            <!-- id="introList" 추가 -->
+            <div class="intro-content" id="introList">
+              <div class="content-box">
+                <div class="content-top">
+                  <h4>쓰던 Mac 주고<br />새 Mac은 부담 없이.</h4>
+                  <p>
+                    Apple Trade In 프로그램을 통해 현재 사용 중인 기기에 대한
+                    합당한 보상 판매 견적을 받은 다음, 새 기기 구입에
+                    활용해보세요.
+                  </p>
+                </div>
+                <div class="content-bottom">
+                  <img
                     src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/tradein-og-image-202509?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1754704312870"
-                    alt="apple-trade-in"/>
+                    alt="apple-trade-in"
+                  />
+                </div>
+              </div>
+              <div class="content-box">
+                <div class="content-top">
+                  <h4>PC에서 Mac으로<br />손쉬운 전환.</h4>
+                  <p>
+                    마이그레이션 지원을 통해 기존 Windows PC의 사진, 문서, 설정을
+                    Mac으로 손쉽게 옮길 수 있습니다.
+                  </p>
+                </div>
+                <div class="content-bottom">
+                  <img
+                    src="https://ipcdn-web.apple.com/assets/v2/web/fd282d3d-250d-4e92-8695-ba55afb72837"
+                    alt="migration"
+                  />
+                </div>
               </div>
             </div>
-            <div class="content-box">
-              <div class="content-top">
-                <h4>PC에서 Mac으로<br />손쉬운 전환.</h4>
-                <p>
-                  마이그레이션 지원을 통해 기존 Windows PC의 사진, 문서, 설정을
-                  Mac으로 손쉽게 옮길 수 있습니다.
-                </p>
-              </div>
-              <div class="content-bottom">
-                <img
-                src="https://ipcdn-web.apple.com/assets/v2/web/fd282d3d-250d-4e92-8695-ba55afb72837"
-                alt="migration"
-              </div>
+            <!-- 고유한 ID 지정 -->
+            <div class="scroll-controls">
+              <button class="scroll-btn prev" id="introPrev">&lt;</button>
+              <button class="scroll-btn next" id="introNext">&gt;</button>
             </div>
           </div>
         </div>
@@ -385,32 +400,41 @@
       <section class="mac-accessory">
         <div class="container">
           <h2 class="section-title">Mac과 천생연분</h2>
-          <div class="intro-content">
-            <div class="content-box">
-              <div class="content-top">
-                <h4>Mac 액세서리</h4>
-                <p>키보드, 마우스 그 밖의 다양한 필수 아이템들을 만나보세요.</p>
-              </div>
-              <div class="content-bottom">
-                <img
+          <div class="slider-wrapper">
+            <!-- id="accessoryList" 추가 -->
+            <div class="intro-content" id="accessoryList">
+              <div class="content-box">
+                <div class="content-top">
+                  <h4>Mac 액세서리</h4>
+                  <p>키보드, 마우스 그 밖의 다양한 필수 아이템들을 만나보세요.</p>
+                </div>
+                <div class="content-bottom">
+                  <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS7akwAkht55qPuelcnKncd8o3dVvTwphvQyx-S7uO3w&s=10"
                     alt="accessory"
-                >
+                  />
+                </div>
+              </div>
+              <div class="content-box">
+                <div class="content-top">
+                  <h4>AppleCare+</h4>
+                  <p>
+                    Mac을 위한 우발적인 손상 보장과 전문가 기술 지원 서비스를
+                    제공합니다.
+                  </p>
+                </div>
+                <div class="content-bottom">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHMCq-ozUMjSpOcoxOzMbQQTU2VEEKS_y91Xdgm9cZGA&s=10"
+                    alt="applecare+"
+                  />
+                </div>
               </div>
             </div>
-            <div class="content-box">
-              <div class="content-top">
-                <h4>AppleCare+</h4>
-                <p>
-                  Mac을 위한 우발적인 손상 보장과 전문가 기술 지원 서비스를
-                  제공합니다.
-                </p>
-              </div>
-              <div class="content-bottom">
-                <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHMCq-ozUMjSpOcoxOzMbQQTU2VEEKS_y91Xdgm9cZGA&s=10"
-                alt="applecare+">
-              </div>
+            <!-- 고유한 ID 지정 (accessoryPrev / accessoryNext) -->
+            <div class="scroll-controls">
+              <button class="scroll-btn prev" id="accessoryPrev">&lt;</button>
+              <button class="scroll-btn next" id="accessoryNext">&gt;</button>
             </div>
           </div>
         </div>
@@ -503,7 +527,7 @@
     <!-- 2. 5열 사이트 링크 네비게이션 -->
     <div class="footer-directory">
       <div class="directory-column">
-        <h3>쇼핑 및 알아보기</h3>
+        <h3 class="accordion-trigger">쇼핑 및 알아보기</h3>
         <ul>
           <li><a href="#">스토어</a></li>
           <li><a href="#">Mac</a></li>
@@ -515,13 +539,15 @@
       </div>
 
       <div class="directory-column">
-        <h3>계정</h3>
+        <h3 class="accordion-trigger">계정</h3>
         <ul>
           <li><a href="#">Apple 계정 관리</a></li>
           <li><a href="#">Apple Store 계정</a></li>
           <li><a href="#">iCloud.com</a></li>
         </ul>
-        <h3>엔터테인먼트</h3>
+        </div>
+        <div class="directory-column">
+        <h3 class="accordion-trigger">엔터테인먼트</h3>
         <ul>
           <li><a href="#">Apple TV+</a></li>
           <li><a href="#">Apple Music</a></li>
@@ -530,7 +556,7 @@
       </div>
 
       <div class="directory-column">
-        <h3>Apple Store</h3>
+        <h3 class="accordion-trigger">Apple Store</h3>
         <ul>
           <li><a href="#">매장 찾기</a></li>
           <li><a href="#">Genius Bar</a></li>
@@ -541,7 +567,7 @@
       </div>
 
       <div class="directory-column">
-        <h3>비즈니스 / 교육</h3>
+        <h3 class="accordion-trigger">비즈니스 / 교육</h3>
         <ul>
           <li><a href="#">Apple과 비즈니스</a></li>
           <li><a href="#">비즈니스를 위한 쇼핑하기</a></li>
@@ -552,7 +578,7 @@
       </div>
 
       <div class="directory-column">
-        <h3>Apple의 가치관</h3>
+        <h3 class="accordion-trigger">Apple의 가치관</h3>
         <ul>
           <li><a href="#">접근성</a></li>
           <li><a href="#">환경</a></li>
@@ -582,6 +608,6 @@
     </div>
   </div>
 </footer>
-    <script src="js/main.js"></script>
+
   </body>
 </html>

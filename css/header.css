@@ -2,7 +2,6 @@
   height: 44px;
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(20px);
-  position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -16,8 +15,31 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  gap: clamp(20px, 4vw, 48px);
+}
+/* 1. 로고 정렬 보완 */
+.logo {
+  display: flex;
+  align-items: center; /* 로고 박스 내부 세로 중앙 정렬 */
+  height: 100%;
 }
 
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+/* 이미지 하단 baseline 여백 제거 및 이미지 수평 정렬 */
+.logo img {
+  display: block; /* inline에서 block으로 변경 */
+  vertical-align: middle;
+}
+.co{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
 .nav-content a {
   color: #1d1d1f;
   text-decoration: none;

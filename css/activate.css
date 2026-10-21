@@ -1,0 +1,79 @@
+/*태블릿*/
+@media(max-width: 1024px){
+
+}
+
+/*모바일*/
+@media (max-width: 768px) {
+    .global-header .co a{
+        display:none;
+    }
+    /* 모바일에서는 원래 카드 및 이미지 크기 유지하면서 가로 스크롤 가능하도록 처리 */
+  .intro-content {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .content-box {
+    flex: 0 0 85%; /* 모바일에서 카드가 원래 크기를 유지하며 옆으로 살짝 보이게 배치 */
+    min-height: 280px;
+  }
+
+  .content-bottom {
+    height: 160px; /* 모바일 크기에 맞춘 안정적인 이미지 높이 */
+  }
+
+  .content-bottom img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+    /*footer style 개선*/
+  .footer-directory {
+    display:flex;
+    flex-direction: column;
+  }
+  .footer-divider {
+    border-bottom: none;
+  }
+  /* 아코디언 트리거가 되는 h3 스타일 */
+  .accordion-trigger {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 1px solid #d2d2d7;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordion-trigger::after{
+    content: '+';
+    font-size: 14px;
+    color: #6e6e73;
+    transition:transform 0.2s ease;
+  }
+  .accordion-trigger.is-open::after{
+    content: '-';
+    transform:rotate(180deg);
+  }
+  .accordion-trigger + ul{
+    display:none;
+    list-style:none;
+    padding:5px 0 15px 15px;
+    margin: 0;
+  }
+  .accordion-trigger.is-open + ul{
+    display:block;
+  }
+  .accordion-trigger + ul li { margin-bottom: 10px; }
+.accordion-trigger + ul li a { color: #515154; text-decoration: none; }
+
+/* 하단 법적 고지 영역 */
+.footer-legal { display: flex; flex-direction: column-reverse; gap: 10px; }
+.legal-links a { color: #515154; text-decoration: none; margin-right: 10px; display: inline-block; margin-bottom: 5px; }
+
+
+}

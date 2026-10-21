@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 각 섹션별 스크롤 연결
   setupSlider("notebookList", "lineupPrev", "lineupNext");
   setupSlider("prList", "prPrev", "prNext");
+  setupSlider("introList", "introPrev", "introNext");
+  setupSlider("accessoryList", "accessoryPrev", "accessoryNext");
 });
 //슬라이드 컨텐츠
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,15 +69,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //라인업 제품군 클릭 이벤트 일어났을때, 상단 필터링
 document.addEventListener("DOMContentLoaded", () => {
+/* ==========================================================================
+     3. 필터링 및 슬라이더 버튼 자동 노출/숨김 (스크롤 불필요 시 자동 숨김)
+     ========================================================================== */
   const filterBtns = document.querySelectorAll(".filter-btn");
   const productCards = document.querySelectorAll(".notebook-box");
 
+  const updateSliderControlsVisibility = (listContainer) => {
+    if (!listContainer) return;
+
+    const controls = listContainer.parentElement?.querySelector(".scroll-controls");
+    if (!controls) return;
+
+    // 실제로 오버플로우(스크롤)가 발생하는지 여부 측정 (1px 오차 방지)
+    const hasScroll = listContainer.scrollWidth - listContainer.clientWidth > 5;
+
+    // 스크롤할 내용이 있을 때만 flex, 없으면 none
+    if (hasScroll) {
+      controls.style.display = "flex";
+    } else {
+      controls.style.display = "none";
+    }
+  };
+
+  const checkAllSliders = () => {
+    // DOM 렌더링 후 정확한 너비 계산을 위한 리퀘스트
+    requestAnimationFrame(() => {
+      updateSliderControlsVisibility(document.getElementById("notebookList"));
+      updateSliderControlsVisibility(document.getElementById("introList"));
+      updateSliderControlsVisibility(document.getElementById("accessoryList"));
+    });
+  };
+
+  // 라인업 필터 클릭 이벤트
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      //모든 버튼에서 active 클래스 제거 후 클릭된 버튼에만 active 추가
       filterBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      //걸러주는 값?
+
       const filterValue = btn.getAttribute("data-filter");
 
       productCards.forEach((card) => {
@@ -86,9 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
           card.style.display = "none";
         }
       });
+
+      checkAllSliders();
     });
   });
-});
+    // 브라우저 창 크기 변경 시 재계산
+  window.addEventListener("resize", checkAllSliders);
+
+  // 이미지 및 리소스가 완전히 로드된 후 정확한 크기로 최종 체크
+  window.addEventListener("load", checkAllSliders);
+
+  // 초기 실행
+  checkAllSliders();
+})
 //4. 함께 여는 애플의 세계
 const accordionItems = document.querySelectorAll(".accordion-item");
 
@@ -115,4 +156,25 @@ accordionItems.forEach((item) => {
       }
     });
   }
+});
+
+// 모바일 푸터 아코디언 토글
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', function() {
+    if (window.innerWidth < 768) {
+      // is-open 클래스만 토글하면 CSS에서 display: block이 자동으로 처리됩니다.
+      this.classList.toggle('is-open');
+    }
+  });
+});
+
+// 브라우저 리사이즈 시 초기화
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) {
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+      trigger.classList.remove('is-open');
+    });
+  }
+  // 창 크기 변경 시에도 라인업 버튼 체크
+    //checkLineupButtons();
 });

@@ -14,7 +14,7 @@
 /* 1. Big Class (Mac 타이틀 & 상단 아이콘 슬라이더) */
 .big-class {
   background-color: #ffffff;
-  padding-top: 40px;
+  padding-top: 100px;
 }
 
 .category-title {
@@ -237,15 +237,23 @@
 .intro-content {
   display: flex;
   gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.intro-content::-webkit-scrollbar {
+  display: none;
 }
 
 .content-box {
-  padding: 40px;
+  padding: 32px;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 360px;
+  min-height: 320px;
+  background-color: #fff;
+  border-radius: 18px;
 }
 
 .content-top h4 {
@@ -259,19 +267,25 @@
   color: #6e6e73;
   line-height: 1.5;
 }
-
+.together-header a{
+  color:rgb(118, 118, 253);
+  text-decoration: none;
+}
 .content-bottom {
   margin-top: 24px;
   width: 100%;
-  height: 200px;
+  height: 200px;/*원하는 높이만큼 수정*/
   overflow: hidden;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 12px;
 }
 
 .content-bottom img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width:100%;
+  max-height:100%;
+  object-fit: contain;
   display: block;
   transition: transform 0.4s ease;
 }
