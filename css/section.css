@@ -2,13 +2,20 @@
 .notebook-box, .pr-box, .content-box {
   background-color: #fff;
   border-radius: 18px;
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+  /*overflow: hidden;*/
+  /* transition을 all로 변경하고 cubic-bezier 타이밍을 통일 */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* 기본 상태에서도 아주 미세한 그림자를 부여하면 hover 시 변경이 더 자연스럽습니다 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .notebook-box:hover, .pr-box:hover, .content-box:hover {
-  transform: scale(1.01) translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  /* translateY 값을 조금 더 완화하여 끊김 느낌을 줄임 */
+  transform: translateY(-4px); 
+  
+  /* 그림자의 blur-radius(30px -> 40px)를 늘리고 투명도를 낮춰 부드럽게 퍼지도록 변경 */
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.003);
 }
 
 /* 1. Big Class (Mac 타이틀 & 상단 아이콘 슬라이더) */
