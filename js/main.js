@@ -1,32 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 스크롤 이동 헬퍼 함수
+  /* ==========================================================================
+     1. 공통 카드 슬라이더 (라인업, PR, 갈아타기, 천생연분 한계 스크롤 방어)
+     ========================================================================== */
   const setupSlider = (listId, prevBtnId, nextBtnId) => {
     const list = document.getElementById(listId);
     const prevBtn = document.getElementById(prevBtnId);
     const nextBtn = document.getElementById(nextBtnId);
 
-    if (!list || !prevBtn || !nextBtn) return;
+    if (!list) return;
 
-    if (list && nextBtn) {
+    // 스크롤 및 버튼 disabled 최신화 함수 (1~2px 오차 예방)
+    const updateButtons = () => {
+      const scrollLeft = list.scrollLeft;
+      const maxScroll = list.scrollWidth - list.clientWidth;
+
+      if (prevBtn) prevBtn.disabled = scrollLeft <= 2;
+      if (nextBtn) nextBtn.disabled = scrollLeft >= maxScroll - 2;
+    };
+
+    if (nextBtn) {
       nextBtn.addEventListener("click", () => {
-        list.scrollBy({ left: 340, behavior: "smooth" });
+        const maxScroll = list.scrollWidth - list.clientWidth;
+        
+        // 이미 맨 끝에 도착해 있으면 스크롤 실행 안 함
+        if (list.scrollLeft >= maxScroll - 2) return;
+
+        // 340px 이동하되 한계를 넘지 않도록 조정
+        const targetScroll = Math.min(list.scrollLeft + 340, maxScroll);
+        list.scrollTo({ left: targetScroll, behavior: "smooth" });
       });
     }
 
-    if (list && prevBtn) {
+    if (prevBtn) {
       prevBtn.addEventListener("click", () => {
-        list.scrollBy({ left: -340, behavior: "smooth" });
+        // 이미 맨 처음에 도착해 있으면 스크롤 실행 안 함
+        if (list.scrollLeft <= 2) return;
+
+        const targetScroll = Math.max(list.scrollLeft - 340, 0);
+        list.scrollTo({ left: targetScroll, behavior: "smooth" });
       });
     }
+
+    // 스크롤 및 화면 리사이즈 시 실시간 체크
+    list.addEventListener("scroll", updateButtons);
+    window.addEventListener("resize", updateButtons);
+
+    // 초기 실행
+    updateButtons();
   };
 
-  // 각 섹션별 스크롤 연결
+  // 각 섹션별 슬라이더 등록
   setupSlider("notebookList", "lineupPrev", "lineupNext");
   setupSlider("prList", "prPrev", "prNext");
   setupSlider("introList", "introPrev", "introNext");
   setupSlider("accessoryList", "accessoryPrev", "accessoryNext");
 });
-// 상단 아이콘 슬라이더 (데스크톱 2단계, 모바일 4단계 이동)
+
+/* ==========================================================================
+   2. 상단 아이콘 슬라이더 (데스크톱 2단계, 모바일 4단계 이동)
+   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("productList");
   const prevBtn = document.getElementById("topSliderPrev");
@@ -34,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!list || !prevBtn || !nextBtn) return;
 
-  // 1. 버튼 활성화/비활성화 상태 업데이트
   const updateButtonState = () => {
     const scrollLeft = list.scrollLeft;
     const maxScroll = list.scrollWidth - list.clientWidth;
@@ -43,16 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.disabled = scrollLeft >= maxScroll - 2;
   };
 
-  // 현재 화면 너비에 따라 이동 단계 수(STEPS) 반환 (모바일: 4구역, 데스크탑: 2구역)
   const getSteps = () => {
     return window.innerWidth <= 768 ? 4 : 2;
   };
 
-  // 2. 우측 버튼 클릭 시 다음 구간으로 이동
   nextBtn.addEventListener("click", () => {
     const maxScroll = list.scrollWidth - list.clientWidth;
     const steps = getSteps();
-    const stepSize = maxScroll / (steps - 1); // 1구간당 스크롤 거리
+    const stepSize = maxScroll / (steps - 1);
     
     const currentStep = Math.round(list.scrollLeft / stepSize);
     const nextTarget = Math.min((currentStep + 1) * stepSize, maxScroll);
@@ -63,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. 좌측 버튼 클릭 시 이전 구간으로 이동
   prevBtn.addEventListener("click", () => {
     const maxScroll = list.scrollWidth - list.clientWidth;
     const steps = getSteps();
@@ -78,17 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. 스크롤할 때마다 버튼 상태 실시간 체크
   list.addEventListener("scroll", updateButtonState);
-
-  // 초기 상태 체크 실행
   updateButtonState();
 });
-//라인업 제품군 클릭 이벤트 일어났을때, 상단 필터링
-document.addEventListener("DOMContentLoaded", () => {
+
 /* ==========================================================================
-     3. 필터링 및 슬라이더 버튼 자동 노출/숨김 (스크롤 불필요 시 자동 숨김)
-     ========================================================================== */
+   3. 라인업 필터링 및 스크롤 컨트롤 숨김/노출
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
   const filterBtns = document.querySelectorAll(".filter-btn");
   const productCards = document.querySelectorAll(".notebook-box");
 
@@ -98,10 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const controls = listContainer.parentElement?.querySelector(".scroll-controls");
     if (!controls) return;
 
-    // 실제로 오버플로우(스크롤)가 발생하는지 여부 측정 (1px 오차 방지)
     const hasScroll = listContainer.scrollWidth - listContainer.clientWidth > 5;
 
-    // 스크롤할 내용이 있을 때만 flex, 없으면 none
     if (hasScroll) {
       controls.style.display = "flex";
     } else {
@@ -110,15 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const checkAllSliders = () => {
-    // DOM 렌더링 후 정확한 너비 계산을 위한 리퀘스트
     requestAnimationFrame(() => {
       updateSliderControlsVisibility(document.getElementById("notebookList"));
+      updateSliderControlsVisibility(document.getElementById("prList"));
       updateSliderControlsVisibility(document.getElementById("introList"));
       updateSliderControlsVisibility(document.getElementById("accessoryList"));
     });
   };
 
-  // 라인업 필터 클릭 이벤트
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       filterBtns.forEach((b) => b.classList.remove("active"));
@@ -138,16 +160,15 @@ document.addEventListener("DOMContentLoaded", () => {
       checkAllSliders();
     });
   });
-    // 브라우저 창 크기 변경 시 재계산
+
   window.addEventListener("resize", checkAllSliders);
-
-  // 이미지 및 리소스가 완전히 로드된 후 정확한 크기로 최종 체크
   window.addEventListener("load", checkAllSliders);
-
-  // 초기 실행
   checkAllSliders();
-})
-//4. 함께 여는 애플의 세계
+});
+
+/* ==========================================================================
+   4. 함께 여는 Apple의 세계 (이미지 아코디언)
+   ========================================================================== */
 const accordionItems = document.querySelectorAll(".accordion-item");
 
 accordionItems.forEach((item) => {
@@ -160,13 +181,11 @@ accordionItems.forEach((item) => {
       const currentItem = e.currentTarget.closest(".accordion-item");
       const isOpen = currentItem.classList.contains("active");
 
-      // 1. 모든 아코디언을 접힘 상태로 초기화
       accordionItems.forEach((i) => {
         i.classList.remove("active");
         i.classList.add("collapsed");
       });
 
-      // 2. 기존에 닫혀있던 항목 클릭 시에만 펼치기
       if (!isOpen) {
         currentItem.classList.add("active");
         currentItem.classList.remove("collapsed");
@@ -175,23 +194,21 @@ accordionItems.forEach((item) => {
   }
 });
 
-// 모바일 푸터 아코디언 토글
+/* ==========================================================================
+   5. 모바일 푸터 아코디언 토글
+   ========================================================================== */
 document.querySelectorAll('.accordion-trigger').forEach(trigger => {
   trigger.addEventListener('click', function() {
     if (window.innerWidth < 768) {
-      // is-open 클래스만 토글하면 CSS에서 display: block이 자동으로 처리됩니다.
       this.classList.toggle('is-open');
     }
   });
 });
 
-// 브라우저 리사이즈 시 초기화
 window.addEventListener('resize', () => {
   if (window.innerWidth >= 768) {
     document.querySelectorAll('.accordion-trigger').forEach(trigger => {
       trigger.classList.remove('is-open');
     });
   }
-  // 창 크기 변경 시에도 라인업 버튼 체크
-    //checkLineupButtons();
 });
