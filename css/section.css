@@ -10,6 +10,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
+
 .notebook-box:hover, .pr-box:hover, .content-box:hover {
   /* translateY 값을 조금 더 완화하여 끊김 느낌을 줄임 */
   transform: translateY(-4px); 
