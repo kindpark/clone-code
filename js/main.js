@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevBtn = document.getElementById(prevBtnId);
     const nextBtn = document.getElementById(nextBtnId);
 
+    if (!list || !prevBtn || !nextBtn) return;
+
     if (list && nextBtn) {
       nextBtn.addEventListener("click", () => {
         list.scrollBy({ left: 340, behavior: "smooth" });
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSlider("introList", "introPrev", "introNext");
   setupSlider("accessoryList", "accessoryPrev", "accessoryNext");
 });
-//슬라이드 컨텐츠
+// 상단 아이콘 슬라이더 (데스크톱 2단계, 모바일 4단계 이동)
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("productList");
   const prevBtn = document.getElementById("topSliderPrev");
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!list || !prevBtn || !nextBtn) return;
 
-  // 1. 버튼 활성화/비활성화 상태 업데이트 함수
+  // 1. 버튼 활성화/비활성화 상태 업데이트
   const updateButtonState = () => {
     const scrollLeft = list.scrollLeft;
     const maxScroll = list.scrollWidth - list.clientWidth;
@@ -41,21 +43,37 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.disabled = scrollLeft >= maxScroll - 2;
   };
 
-  // 2. 우측 버튼 클릭 시 끝(또는 일정 거리)까지 스크롤
+  // 현재 화면 너비에 따라 이동 단계 수(STEPS) 반환 (모바일: 4구역, 데스크탑: 2구역)
+  const getSteps = () => {
+    return window.innerWidth <= 768 ? 4 : 2;
+  };
+
+  // 2. 우측 버튼 클릭 시 다음 구간으로 이동
   nextBtn.addEventListener("click", () => {
-    // 맨 끝까지 한 번에 보낼 수도 있고, 일정 거리(예: 400px) 이동도 가능합니다.
     const maxScroll = list.scrollWidth - list.clientWidth;
+    const steps = getSteps();
+    const stepSize = maxScroll / (steps - 1); // 1구간당 스크롤 거리
+    
+    const currentStep = Math.round(list.scrollLeft / stepSize);
+    const nextTarget = Math.min((currentStep + 1) * stepSize, maxScroll);
 
     list.scrollTo({
-      left: maxScroll, // 끝까지 슬라이드
+      left: nextTarget,
       behavior: "smooth",
     });
   });
 
-  // 3. 좌측 버튼 클릭 시 맨 왼쪽으로 스크롤
+  // 3. 좌측 버튼 클릭 시 이전 구간으로 이동
   prevBtn.addEventListener("click", () => {
+    const maxScroll = list.scrollWidth - list.clientWidth;
+    const steps = getSteps();
+    const stepSize = maxScroll / (steps - 1);
+
+    const currentStep = Math.round(list.scrollLeft / stepSize);
+    const prevTarget = Math.max((currentStep - 1) * stepSize, 0);
+
     list.scrollTo({
-      left: 0, // 맨 처음으로 슬라이드
+      left: prevTarget,
       behavior: "smooth",
     });
   });
@@ -66,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 초기 상태 체크 실행
   updateButtonState();
 });
-
 //라인업 제품군 클릭 이벤트 일어났을때, 상단 필터링
 document.addEventListener("DOMContentLoaded", () => {
 /* ==========================================================================
